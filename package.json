@@ -7,7 +7,9 @@
     "watch": "webpack -w",
     "server": "node ./server",
     "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:dist": "webpack --env=prod --progress --profile --colors"
+    "build:dist": "webpack --env=prod --progress --profile --colors",
+    "start": "webpack --env=dev --progress --profile --colors && node ./server",
+    "clean": "shjs ./internals/scripts/clean.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "reactfire": "^1.0.0",
+    "shelljs": "^0.7.6",
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.5",
     "url-loader": "^0.5.7",

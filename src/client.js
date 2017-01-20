@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase';
 import reactfire from 'reactfire';
-import config from './config';
+import keys from './keys';
 require('style!css!./style.css');
 
-firebase.initializeApp(config);
+firebase.initializeApp(keys);
 
 class App extends React.Component {
   constructor(props) {
