@@ -28,13 +28,15 @@ Then add the following to <code>keys.js</code>:
 
 ```javascript
 const apiKey = "YOUR API KEY";
-const authDomain = "YOUR AUTH DOMAIN";
-const databaseURL = "YOUR DATABASE URL";
+const authDomain = "YOUR AUTH DOMAIN"; // e.g., moaningmyrtle-2d294.firebaseapp.com
+const databaseURL = "YOUR DATABASE URL"; // e.g., https://moaningmyrtle-2d294.firebaseio.com
+const databaseRef = 'WHERE YOU WANT TO STORE THE DATA'; //e.g., moaningmyrtle/items, where "moaningmyrtle" was the name of my app
 
 module.exports = {
   apiKey: apiKey,
   authDomain: authDomain,
   databaseURL: databaseURL
+  databaseRef: databaseRef
 };
 ```
 
@@ -50,5 +52,7 @@ npm run start
 ```
 npm run clean
 ```
+
+
 
 

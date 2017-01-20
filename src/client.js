@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.firebaseRef = firebase.database().ref('moaningmyrtle/items');
+    this.firebaseRef = firebase.database().ref(databaseRef);
     this.firebaseRef.limitToLast(5).on('value', function(dataSnapshot) {
       var items = [];
       dataSnapshot.forEach(function(childSnapshot) {
