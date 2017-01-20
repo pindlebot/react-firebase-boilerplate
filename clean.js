@@ -1,5 +1,4 @@
 require('shelljs/global');
-const addCheckMark = require('./helpers/checkmark.js');
 
 if (!which('git')) {
   echo('Sorry, this script requires git');
@@ -21,8 +20,6 @@ cp('templates/client.js', 'src/client.js');
 
 // Remove the templates folder
 rm('-rf', 'templates');
-
-addCheckMark();
 
 // Commit the changes
 if (exec('git add . --all && git commit -qm "Remove default example"').code !== 0) {

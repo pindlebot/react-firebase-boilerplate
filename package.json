@@ -9,7 +9,7 @@
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors",
     "start": "webpack --env=dev --progress --profile --colors && node ./server",
-    "clean": "shjs ./internals/scripts/clean.js"
+    "clean": "shjs ./clean.js"
   },
   "repository": {
     "type": "git",
