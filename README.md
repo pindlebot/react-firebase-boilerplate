@@ -45,5 +45,10 @@ cd react-firebase-boilerplate
 npm run start
 ```
 
+### Remove the example project
+
+```
+npm run clean
+```
 
 
