@@ -1,0 +1,10 @@
+.container {
+  max-width: 660px;
+  margin: 6em auto 6em auto;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
