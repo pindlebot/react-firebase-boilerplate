@@ -40,10 +40,15 @@ module.exports = {
 };
 ```
 
+Install npm packages:
+```
+cd react-firebase-boilerplate
+npm install
+```
+
 Build files and start the server:
 
 ```
-cd react-firebase-boilerplate
 npm run start
 ```
 
