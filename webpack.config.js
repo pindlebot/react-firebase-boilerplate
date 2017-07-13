@@ -48,12 +48,12 @@ var devOutput = {
   publicPath: '/'
 }
 
-var prodEntry = './src/App.js'
+var prodEntry = './src/entry.js'
 var devEntry =  [
   'react-hot-loader/patch',
   'webpack-dev-server/client?http://localhost:3000',
   'webpack/hot/only-dev-server',
-  './src/App.js',
+  './src/entry.js',
 ] 
 
 module.exports = {

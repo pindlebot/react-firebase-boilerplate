@@ -12,9 +12,10 @@ script:
 addons:
   code_climate:
     repo_token: "$CODE_CLIMATE"
-#deploy:
-#  skip_cleanup: true
-#  provider: heroku
-#  api_key:
-#    secure: "$HEROKU_KEY"
-#  app: "$HEROKU_APP"
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_KEY"
+  app: "$HEROKU_APP"
+  

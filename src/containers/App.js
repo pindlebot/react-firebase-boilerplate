@@ -1,20 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase';
-import reactfire from 'reactfire';
-import uuid from 'uuid/v4';
-import config from './config';
-import Notes from './components/Notes';
-import './style.css';
-
-firebase.initializeApp(config);
-
-const pushToFirebase = ({ text, title }) => {
-  const key = uuid();
-  const updates = {};
-  updates[`items/${key}`] = { text, title, key };
-  return firebase.database().ref().update(updates);
-};
+import Notes from '../components/Notes';
+import {pushToFirebase, login} from '../auth'
 
 class App extends React.Component {
   constructor(props) {
@@ -28,8 +15,8 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.ref = firebase.database().ref('items');
-    this.ref.on('value', (snapshot) => {
+    this.ref = require('../auth/config').ref
+    this.ref.child('items').on('value', (snapshot) => {
       const items = [];
       snapshot.forEach((child) => {
         const item = child.val();
@@ -41,7 +28,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    this.firebaseRef.off();
+    this.ref.off();
   }
 
   saveNote(event) {
@@ -59,7 +46,9 @@ class App extends React.Component {
     const { items, toggle } = this.state;
     return (
       <div>
-        <div className="header" />
+        <div className="header">
+          <div onClick={() => { login() }}>Login</div>
+        </div>
         <div className="app-content">
           <h1>Firebase + React</h1>
           <Notes items={items} />
@@ -106,5 +95,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <App />, document.getElementById('root'));
+export default App
