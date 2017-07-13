@@ -36,17 +36,10 @@ var devPlugins = [
 
 var prodOutput = {
   filename: '[name].[chunkhash].js',
-  // the filename template for entry chunks
   chunkFilename: '[name].[chunkhash].chunk.js',
-  // the filename template for additional chunks
   path: path.resolve(__dirname, "dist"), // string
-  // the target directory for all output files
-  // must be an absolute path (use the Node.js path module)
   publicPath: "/", 
-  // the url to the output directory resolved relative to the HTML page
   sourceMapFilename: '[file].map',
-  // pathinfo: true, // boolean
-  // include useful path info about modules, exports, requests, etc. into the generated code
 }
 
 var devOutput = {
@@ -58,16 +51,11 @@ var devOutput = {
 var prodEntry = './src/App.js'
 var devEntry =  [
   'react-hot-loader/patch',
-  // activate HMR for React
   'webpack-dev-server/client?http://localhost:3000',
-  // bundle the client for webpack-dev-server
-  // and connect to the provided endpoint
   'webpack/hot/only-dev-server',
-  // bundle the client for hot reloading
-  // only- means to only hot reload for successful updates
   './src/App.js',
-  // the entry point of our app
 ] 
+
 module.exports = {
   entry: dev ? devEntry : prodEntry,
   output: dev ? devOutput : prodOutput,
@@ -121,31 +109,13 @@ module.exports = {
   },
 
   devServer: {
-    // proxy: { // proxy URLs to backend development server
-    //  '/api': 'http://localhost:3000'
-    // },
     contentBase: path.join(__dirname, 'dist'), 
-    // boolean | string | array, static file location
-    // compress: true, 
-    // enable gzip compression
     historyApiFallback: true, 
-    // true for index.html upon 404, object for multiple paths
     hot: true, 
-    // hot module replacement. Depends on HotModuleReplacementPlugin
-    // https: false, 
-    // true for self-signed, object for cert authority
-    // noInfo: true,
-    // only errors & warns on hot reload
     publicPath: '/',
     port: 3000
   },
 
   plugins: dev ? devPlugins : prodPlugins,
   profile: true,
-  // capture timing information
-  // cache: false, // boolean
-  // disable/enable caching
-  // watch: true, // boolean
-  // enables watching
-
 }
