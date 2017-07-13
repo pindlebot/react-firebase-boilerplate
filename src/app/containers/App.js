@@ -46,9 +46,7 @@ class App extends React.Component {
     const { items, toggle } = this.state;
     return (
       <div>
-        <div className="header">
-          <div onClick={() => { login() }}>Login</div>
-        </div>
+        <div className="header"></div>
         <div className="app-content">
           <h1>Firebase + React</h1>
           <Notes items={items} />

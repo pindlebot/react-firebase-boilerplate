@@ -4,3 +4,4 @@ dist/
 .coveralls.yml
 .nyc_output
 coverage/
+service_account.json

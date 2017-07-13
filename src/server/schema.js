@@ -1,4 +1,6 @@
 // schema.js
+// const admin = require('./admin')
+
 var {
   graphql,
   GraphQLSchema,

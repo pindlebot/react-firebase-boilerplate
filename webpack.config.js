@@ -6,7 +6,7 @@ var dev = process.env.NODE_ENV === 'development' ? true : false;
 var plugins = [
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'src/index.html'
+    template: 'src/app/index.html'
   }),
 ]
 
@@ -48,12 +48,12 @@ var devOutput = {
   publicPath: '/'
 }
 
-var prodEntry = './src/entry.js'
+var prodEntry = './src/app/entry.js'
 var devEntry =  [
   'react-hot-loader/patch',
   'webpack-dev-server/client?http://localhost:3000',
   'webpack/hot/only-dev-server',
-  './src/entry.js',
+  './src/app/entry.js',
 ] 
 
 module.exports = {

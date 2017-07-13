@@ -18,4 +18,6 @@ deploy:
   api_key:
     secure: "$HEROKU_KEY"
   app: "$HEROKU_APP"
-  
+before_install:
+- openssl aes-256-cbc -K $encrypted_68faba75cfa8_key -iv $encrypted_68faba75cfa8_iv
+  -in service_account.json.enc -out service_account.json -d
