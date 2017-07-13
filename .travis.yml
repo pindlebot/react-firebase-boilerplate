@@ -7,6 +7,7 @@ branches:
 install:
 - npm install
 script:
+- npm run travis-test
 - npm run build
 addons:
   code_climate:

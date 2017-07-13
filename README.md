@@ -1,6 +1,6 @@
-# react-firebase-boilerplate
+# react-firebase-boilerplate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-A ReactJs Firebase starter project that leverages Express and ReactFire. 
+A React + Firebase starter project with hot-reloading. 
 
 ## Features
 
@@ -17,7 +17,18 @@ cd react-firebase-boilerplate
 npm install
 ```
 
-Add your Firebase config in ./src/config.js.
+Add your Firebase config in ./src/config.js:
+
+```js
+const config = {
+  apiKey: 'your-api-key',
+  authDomain: 'your-app.firebaseapp.com',
+  databaseURL: 'https://your-app.firebaseio.com',
+  projectId: 'your-app',
+  storageBucket: 'your-app.appspot.com',
+  messagingSenderId: 'your-messaging-id',
+};
+```
 
 Start the server:
 

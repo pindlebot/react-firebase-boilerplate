@@ -7,5 +7,10 @@
   "plugins": [
     "transform-runtime",
     "transform-class-properties"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [ "istanbul" ]
+    }
+  }
 }
