@@ -12,6 +12,6 @@ const Notes = ({ items }) => (
 
 Notes.propTypes = {
   items: PropTypes.array
-}
+};
 
 export default Notes;

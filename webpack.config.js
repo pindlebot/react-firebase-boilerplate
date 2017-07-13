@@ -88,24 +88,22 @@ module.exports = {
 
   performance: {
     hints: process.env.NODE_ENV === 'prod' ? "warning" : false,
-    maxAssetSize: 200000, // int (in bytes),
-    maxEntrypointSize: 400000, // int (in bytes)
+    maxAssetSize: 200000,
+    maxEntrypointSize: 400000,
     assetFilter: function(assetFilename) {
-      // Function predicate that provides asset filenames
       return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
     },
   },
 
-  devtool: "source-map", // enum
-  context: __dirname, // string (absolute path!)
-  target: "web", // enum
-  // externals: ["react"],
+  devtool: "source-map", 
+  context: __dirname, 
+  target: "web", 
   stats: {
     assets: true,
     colors: true,
     errors: true,
     errorDetails: true,
-    // hash: true,
+    hash: true,
   },
 
   devServer: {
