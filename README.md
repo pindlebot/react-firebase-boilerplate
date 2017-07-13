@@ -3,6 +3,8 @@
 
 A React + Firebase starter project with hot-reloading. 
 
+[Demo](https://intense-anchorage-90603.herokuapp.com/)
+
 ## Features
 
 - Hot-reloading
