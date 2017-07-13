@@ -1,6 +1,5 @@
 # react-firebase-boilerplate
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
-[![Coverage percentage][coveralls-image]][coveralls-url]
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 A React + Firebase starter project with hot-reloading. 
 
