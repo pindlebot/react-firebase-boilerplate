@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase';
 import reactfire from 'reactfire';
+import uuid from 'uuid/v4';
 import config from './config';
-import uuid from 'uuid/v4'
-import Notes from './components/Notes'
-import './style.css'
+import Notes from './components/Notes';
+import './style.css';
 
 firebase.initializeApp(config);
 
-const pushToFirebase = ({text, title}) => {
-  var key = uuid()
-  var updates = {}
-  updates[`items/${key}`] = {text, title, key}
-  return firebase.database().ref().update(updates)
-}
+const pushToFirebase = ({ text, title }) => {
+  const key = uuid();
+  const updates = {};
+  updates[`items/${key}`] = { text, title, key };
+  return firebase.database().ref().update(updates);
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -23,79 +23,81 @@ class App extends React.Component {
       items: [],
       toggle: false,
       title: '',
-      text: ''
-    }
+      text: '',
+    };
   }
 
   componentWillMount() {
     this.ref = firebase.database().ref('items');
     this.ref.on('value', (snapshot) => {
-      var items = [];
-      snapshot.forEach(child => {
-        var item = child.val();
-        item['key'] = child.key;
+      const items = [];
+      snapshot.forEach((child) => {
+        const item = child.val();
+        item.key = child.key;
         items.push(item);
-      })
-      this.setState({items})
-    })
-  };
-    
+      });
+      this.setState({ items });
+    });
+  }
+
   componentWillUnmount() {
     this.firebaseRef.off();
-  };
-  
+  }
+
   saveNote(event) {
     event.preventDefault();
-    var {title, text} = this.state
-    pushToFirebase({title, text})
-    this.setState({toggle: false, text: '', title: ''});
+    const { title, text } = this.state;
+    pushToFirebase({ title, text });
+    this.setState({ toggle: false, text: '', title: '' });
   }
 
   render() {
     const styles = {
-      width: "100%",
-      height: "16em",
+      width: '100%',
+      height: '16em',
     };
-    var {items, toggle} = this.state;
+    const { items, toggle } = this.state;
     return (
       <div>
-        <div className="header"></div>
+        <div className="header" />
         <div className="app-content">
           <h1>Firebase + React</h1>
           <Notes items={items} />
           <div className="form-elem">
             {toggle ? <div>
               <div className="row">
-                <input 
-                  placeholder="Note title" 
-                  value={this.state.title} 
-                  onChange={(e) => { this.setState({title: e.target.value}) }} 
+                <input
+                  placeholder="Note title"
+                  value={this.state.title}
+                  onChange={(e) => { this.setState({ title: e.target.value }); }}
                 />
               </div>
               <div className="row">
-                <textarea 
-                  placeholder="Note content" 
-                  value={this.state.text} 
-                  onChange={(e) => this.setState({text: e.target.value}) } 
+                <textarea
+                  placeholder="Note content"
+                  value={this.state.text}
+                  onChange={e => this.setState({ text: e.target.value })}
                   style={styles}
                 />
               </div>
               <div className="row">
-                <button 
+                <button
                   className="common-btn"
                   onClick={this.saveNote.bind(this)}
                 >
                 Save
                 </button>
-                <button  
+                <button
                   className="common-btn hero-btn"
-                  onClick={() => { this.setState({toggle: true}) }}>New Note
+                  onClick={() => { this.setState({ toggle: true }); }}
+                >New Note
                </button>
               </div>
-            </div> : 
-               <div className="row"><button  
-                  className="common-btn hero-btn"
-                  onClick={() => { this.setState({toggle: true}) }}>New Note
+            </div> :
+            <div className="row"><button
+              className="common-btn hero-btn"
+              onClick={() => { this.setState({ toggle: true }); }}
+            >New Note
                </button></div>}
           </div>
         </div>
@@ -105,4 +107,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App/>, document.getElementById("root"));
+  <App />, document.getElementById('root'));
