@@ -1,4 +1,6 @@
 # react-firebase-boilerplate
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/focuswish/react-firebase-boilerplate.svg)](https://greenkeeper.io/)
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 A React + Firebase starter project with hot-reloading. 
