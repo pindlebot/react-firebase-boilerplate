@@ -20,7 +20,7 @@ cd react-firebase-boilerplate
 npm install
 ```
 
-Add your Firebase config in ./src/config.js:
+Add your Firebase config in ./src/app/auth/config.js:
 
 ```js
 const config = {
